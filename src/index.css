@@ -1,0 +1,1070 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 225 10% 8%; /* Slightly blue-tinted dark background */
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 225 15% 5%;
+  --popover-foreground: 0 0% 98%;
+  --card: 225 12% 10%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 135 100% 60%; /* Brighter green */
+  --primary-foreground: 210 40% 98%;
+  --secondary: 280 100% 60%; /* Vibrant purple */
+  --secondary-foreground: 0 0% 98%;
+  --accent: 320 100% 60%; /* Hot pink */
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 80% 50%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --radius: 0.8rem; /* Slightly more rounded */
+  
+  /* Meme-friendly custom colors */
+  --neon-green: 125 100% 60%; /* Brighter green */
+  --moon-blue: 200 100% 60%; /* Moon color for "to the moon" memes */
+  --doge-yellow: 45 100% 60%; /* Doge meme yellow */
+  --dark-bg: 225 15% 8%;
+  --dark-card: 225 15% 12%;
+  --neon-purple: 280 100% 65%; /* Brighter purple */
+  --neon-cyan: 180 100% 60%; /* Brighter cyan */
+  --neon-pink: 320 100% 65%; /* Hot pink */
+  --dark-gray: 220 10% 20%;
+  --darker-gray: 220 15% 15%;
+  --meme-red: 355 100% 65%; /* For loss/FUD memes */
+  --moon-gradient: linear-gradient(to right, hsl(var(--moon-blue)), hsl(var(--neon-green))); /* To the moon gradient */
+  
+  /* RGB Split and Glitch colors */
+  --rgb-cyan: 180 100% 50%; /* #00ffff - for RGB split effect */
+  --rgb-magenta: 300 100% 50%; /* #ff00ff - for RGB split effect */
+  --glitch-red: 348 100% 60%; /* #ff1f4c */
+  --glitch-blue: 195 100% 50%; /* #00c8ff */
+  --glitch-green: 157 100% 49%; /* #00ffa3 */
+}
+
+/* Professional animations for glitch effects */
+@keyframes glitch-anim {
+  0% {
+    clip-path: inset(30% 0 36% 0);
+    transform: translate(-1px, 1px);
+  }
+  10% {
+    clip-path: inset(20% 0 60% 0);
+    transform: translate(0.7px, -0.7px);
+  }
+  20% {
+    clip-path: inset(45% 0 35% 0);
+    transform: translate(-0.7px, 1px);
+  }
+  30% {
+    clip-path: inset(50% 0 30% 0);
+    transform: translate(1px, 0.5px);
+  }
+  40% {
+    clip-path: inset(25% 0 45% 0);
+    transform: translate(-1px, -1px);
+  }
+  50% {
+    clip-path: inset(40% 0 30% 0);
+    transform: translate(1px, -1px);
+  }
+  60% {
+    clip-path: inset(55% 0 15% 0);
+    transform: translate(0.7px, 1px);
+  }
+  70% {
+    clip-path: inset(35% 0 35% 0);
+    transform: translate(-1px, 0.5px);
+  }
+  80% {
+    clip-path: inset(15% 0 65% 0);
+    transform: translate(1px, -0.7px);
+  }
+  90% {
+    clip-path: inset(25% 0 45% 0);
+    transform: translate(-0.7px, 1px);
+  }
+  100% {
+    clip-path: inset(45% 0 25% 0);
+    transform: translate(1px, -1px);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip-path: inset(55% 0 15% 0);
+    transform: translate(1px, -1px);
+  }
+  10% {
+    clip-path: inset(30% 0 35% 0);
+    transform: translate(-0.7px, 1px);
+  }
+  20% {
+    clip-path: inset(15% 0 65% 0);
+    transform: translate(1px, 0.7px);
+  }
+  30% {
+    clip-path: inset(45% 0 25% 0);
+    transform: translate(-1px, 1px);
+  }
+  40% {
+    clip-path: inset(40% 0 30% 0);
+    transform: translate(0.7px, -1px);
+  }
+  50% {
+    clip-path: inset(50% 0 25% 0);
+    transform: translate(-1px, -0.7px);
+  }
+  60% {
+    clip-path: inset(20% 0 45% 0);
+    transform: translate(1px, 1px);
+  }
+  70% {
+    clip-path: inset(60% 0 15% 0);
+    transform: translate(-0.7px, -1px);
+  }
+  80% {
+    clip-path: inset(35% 0 40% 0);
+    transform: translate(1px, -0.7px);
+  }
+  90% {
+    clip-path: inset(15% 0 55% 0);
+    transform: translate(-1px, 1px);
+  }
+  100% {
+    clip-path: inset(35% 0 30% 0);
+    transform: translate(0.7px, -0.7px);
+  }
+}
+
+@keyframes glitch-skew {
+  0% {
+    transform: skew(0.3deg);
+  }
+  10% {
+    transform: skew(-0.5deg);
+  }
+  20% {
+    transform: skew(0.7deg);
+  }
+  30% {
+    transform: skew(0deg);
+  }
+  40% {
+    transform: skew(-0.3deg);
+  }
+  50% {
+    transform: skew(0.5deg);
+  }
+  60% {
+    transform: skew(-0.7deg);
+  }
+  70% {
+    transform: skew(0deg);
+  }
+  80% {
+    transform: skew(0.3deg);
+  }
+  90% {
+    transform: skew(-0.3deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+/* Third layer animation */
+@keyframes glitch-anim3 {
+  0% {
+    clip-path: inset(40% 0 40% 0);
+    transform: translate(0, 1px);
+  }
+  20% {
+    clip-path: inset(20% 0 60% 0);
+    transform: translate(1px, 0);
+  }
+  40% {
+    clip-path: inset(30% 0 50% 0);
+    transform: translate(0, -1px);
+  }
+  60% {
+    clip-path: inset(50% 0 25% 0);
+    transform: translate(-1px, 0);
+  }
+  80% {
+    clip-path: inset(15% 0 65% 0);
+    transform: translate(1px, 1px);
+  }
+  100% {
+    clip-path: inset(35% 0 40% 0);
+    transform: translate(-1px, -1px);
+  }
+}
+
+/* Flash animation for super glitch */
+@keyframes glitch-flash {
+  0%, 80% {
+    opacity: 0;
+  }
+  81%, 100% {
+    opacity: 0.9;
+  }
+}
+
+/* Text distortion for extreme glitch */
+@keyframes glitch-distort {
+  0% {
+    transform: scale(1.05) skew(1deg, 0.5deg);
+  }
+  20% {
+    transform: scale(1) skew(-1deg, -0.5deg);
+  }
+  40% {
+    transform: scale(1.05) skew(0.5deg, 1deg);
+  }
+  60% {
+    transform: scale(1) skew(-0.5deg, -1deg);
+  }
+  80% {
+    transform: scale(1.05) skew(0deg, 0.5deg);
+  }
+  100% {
+    transform: scale(1) skew(0deg, -0.5deg);
+  }
+}
+
+@keyframes noise-animation {
+  0% { background-position: 0% 0%; }
+  10% { background-position: -5% -5%; }
+  20% { background-position: 10% 5%; }
+  30% { background-position: 15% 10%; }
+  40% { background-position: 20% -10%; }
+  50% { background-position: -10% 15%; }
+  60% { background-position: -15% 5%; }
+  70% { background-position: 5% -10%; }
+  80% { background-position: -5% 15%; }
+  90% { background-position: 10% 10%; }
+  100% { background-position: 5% 0%; }
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px) rotate(0deg);
+  }
+  50% {
+    transform: translatey(-10px) rotate(2deg);
+  }
+  100% {
+    transform: translatey(0px) rotate(0deg);
+  }
+}
+
+@keyframes pulse-fast {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+/* Meme animations */
+@keyframes to-the-moon {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-40px) scale(1.1);
+  }
+  100% {
+    transform: translateY(-120px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes wen-lambo {
+  0% {
+    transform: translateX(-100%) rotate(0deg);
+  }
+  50% {
+    transform: translateX(50%) rotate(5deg);
+  }
+  100% {
+    transform: translateX(200%) rotate(0deg);
+  }
+}
+
+@keyframes diamond-hands {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.2) drop-shadow(0 0 10px rgba(57, 255, 20, 0.8));
+  }
+}
+
+/* Custom glitch title component */
+.glitch-title {
+  position: relative;
+  animation: glitch-skew 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate-reverse;
+}
+
+.glitch-title::before,
+.glitch-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-title::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00ff, 0 0 8px rgba(255, 0, 255, 0.8);
+  clip-path: inset(44% 0 56% 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+  mix-blend-mode: screen;
+}
+
+.glitch-title::after {
+  left: -2px;
+  text-shadow: 2px 0 #00ffff, 0 0 8px rgba(0, 255, 255, 0.8);
+  clip-path: inset(31% 0 40% 0);
+  animation: glitch-anim2 3s infinite linear alternate-reverse;
+  mix-blend-mode: screen;
+}
+
+/* Noise background effect for sections */
+.noise-bg {
+  position: relative;
+}
+
+.noise-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  animation: noise-animation 1s infinite linear;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Digital Rain / Matrix effect */
+@keyframes digitalRain {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Glitch scan lines animation */
+@keyframes glitch-scan {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Random floating animation for glitch fragments */
+@keyframes float-random {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(10px, -10px) rotate(5deg);
+  }
+  50% {
+    transform: translate(-5px, 5px) rotate(-3deg);
+  }
+  75% {
+    transform: translate(-10px, -5px) rotate(2deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* Fast pulse animation for active glitch state */
+@keyframes pulse-fast {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+.digital-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+.digital-rain-character {
+  position: absolute;
+  color: #39ff14;
+  font-family: monospace;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px #39ff14;
+  animation: digitalRain linear infinite;
+  opacity: 0;
+}
+
+/* RGB Split Effect */
+.rgb-split {
+  position: relative;
+  display: inline-block;
+  color: white;
+  text-shadow:
+    -2px 0 #ff00ff,
+    2px 0 #00ffff;
+  animation: rgb-shift 0.1s steps(1) infinite;
+}
+
+@keyframes rgb-shift {
+  0%, 100% {
+    text-shadow:
+      -2px 0 #ff00ff,
+      2px 0 #00ffff;
+  }
+  25% {
+    text-shadow:
+      -3px 0 #ff00ff,
+      3px 0 #00ffff;
+  }
+  50% {
+    text-shadow:
+      -2px 0 #ff00ff,
+      2px 0 #00ffff;
+  }
+  75% {
+    text-shadow:
+      -2.5px 0 #ff00ff,
+      1.5px 0 #00ffff;
+  }
+}
+
+/* Intense RGB Split Effect - Like in the reference image */
+.rgb-split-intense {
+  position: relative;
+  display: inline-block;
+  color: white;
+}
+
+.rgb-split-intense::before,
+.rgb-split-intense::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;
+}
+
+.rgb-split-intense::before {
+  color: #ff00ff;
+  transform: translateX(-3px);
+  animation: glitch-move 0.05s steps(1) infinite alternate-reverse;
+}
+
+.rgb-split-intense::after {
+  color: #00ffff;
+  transform: translateX(3px);
+  animation: glitch-move 0.1s steps(2) infinite alternate-reverse;
+}
+
+@keyframes glitch-move {
+  0%, 100% { transform: translateX(var(--x, 3px)); }
+  25% { transform: translateX(calc(var(--x, 3px) * 1.2)); }
+  50% { transform: translateX(calc(var(--x, 3px) * 0.8)); }
+  75% { transform: translateX(calc(var(--x, 3px) * 1.5)); }
+}
+
+/* Scan Lines */
+.scan-lines {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-lines::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: scanline-move 8s linear infinite;
+}
+
+@keyframes scanline-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100px;
+  }
+}
+
+/* Horizontal Line Glitch */
+.horizontal-glitch-lines {
+  position: relative;
+  overflow: hidden;
+}
+
+.horizontal-glitch-lines::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 99.9%,
+    rgba(0, 200, 255, 0.2) 99.9%,
+    rgba(0, 200, 255, 0.2) 100%
+  ),
+  repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 99.8%,
+    rgba(255, 0, 255, 0.2) 99.8%,
+    rgba(255, 0, 255, 0.2) 100%
+  );
+  background-size: 100px 100%, 200px 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+/* Glitched Edge Effect */
+.glitched-edge {
+  position: relative;
+}
+
+.glitched-edge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, transparent 0%, transparent 99%, rgba(0, 255, 255, 0.5) 99.5%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, transparent 99%, rgba(255, 0, 255, 0.5) 99.5%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Digital Noise Overlay */
+.digital-noise {
+  position: relative;
+}
+
+.digital-noise::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 290 290' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Matrix code background */
+.bg-matrix-code {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(0deg, 
+      rgba(0, 255, 255, 0.05) 0px,
+      rgba(0, 255, 255, 0.05) 1px,
+      transparent 1px,
+      transparent 15px
+    ),
+    repeating-linear-gradient(90deg, 
+      rgba(255, 0, 255, 0.04) 0px,
+      rgba(255, 0, 255, 0.04) 1px,
+      transparent 1px,
+      transparent 15px
+    );
+  background-size: 15px 15px;
+  pointer-events: none;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-mono antialiased bg-background text-foreground relative overflow-x-hidden;
+    background-color: black;
+    position: relative;
+    letter-spacing: 0.05em;
+  }
+
+  .bg-grid {
+    background-size: 30px 30px;
+    background-image: 
+      linear-gradient(to right, rgba(57, 255, 20, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(57, 255, 20, 0.05) 1px, transparent 1px);
+  }
+
+  .noise-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    z-index: -1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* Meme-style utility classes */
+  .to-the-moon {
+    animation: to-the-moon 3s ease-in forwards;
+    cursor: pointer;
+  }
+
+  .wen-lambo {
+    animation: wen-lambo 5s ease-in-out;
+    cursor: pointer;
+  }
+
+  .diamond-hands {
+    animation: diamond-hands 2s ease-in-out infinite;
+    cursor: pointer;
+  }
+
+  .degen-gradient {
+    background: linear-gradient(to right, hsl(var(--neon-green)), hsl(var(--moon-blue)));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    position: relative;
+  }
+
+  .degen-gradient::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    opacity: 0.6;
+    filter: blur(8px);
+    background: linear-gradient(to right, hsl(var(--neon-green)), hsl(var(--moon-blue)));
+  }
+
+  .moon-badge {
+    position: relative;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, hsl(var(--moon-blue)) 0%, hsl(var(--neon-green)) 100%);
+    border-radius: 9999px;
+    color: black;
+    font-weight: bold;
+    transform: rotate(-2deg);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+  }
+
+  .neon-border {
+    position: relative;
+    z-index: 0;
+  }
+
+  .neon-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    background: linear-gradient(45deg, hsl(var(--neon-green)), hsl(var(--neon-cyan)), hsl(var(--neon-purple)), hsl(var(--neon-green)));
+    z-index: -1;
+    animation: border-animate 5s linear infinite;
+    background-size: 400%;
+    border-radius: inherit;
+    opacity: 0.7;
+  }
+
+  @keyframes border-animate {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+  @keyframes glitch-anim {
+    0% {
+      clip-path: inset(80% 0 0 0);
+    }
+    20% {
+      clip-path: inset(20% 0 80% 0);
+    }
+    40% {
+      clip-path: inset(40% 0 43% 0);
+    }
+    60% {
+      clip-path: inset(66% 0 25% 0);
+    }
+    80% {
+      clip-path: inset(14% 0 78% 0);
+    }
+    100% {
+      clip-path: inset(53% 0 35% 0);
+    }
+  }
+
+  @keyframes glitch-anim2 {
+    0% {
+      clip-path: inset(21% 0 68% 0);
+    }
+    20% {
+      clip-path: inset(58% 0 13% 0);
+    }
+    40% {
+      clip-path: inset(12% 0 65% 0);
+    }
+    60% {
+      clip-path: inset(48% 0 33% 0);
+    }
+    80% {
+      clip-path: inset(73% 0 16% 0);
+    }
+    100% {
+      clip-path: inset(33% 0 45% 0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0); 
+    }
+    50% { 
+      transform: translateY(-20px); 
+    }
+  }
+
+  /* RGB Split effects */
+  .rgb-split {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    color: white;
+    text-shadow: 
+      -0.08em 0 0 rgba(0, 255, 255, 0.75), 
+      0.08em 0 0 rgba(255, 0, 255, 0.75);
+  }
+
+  .rgb-split::before,
+  .rgb-split::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  }
+
+  .rgb-split::before {
+    text-shadow: -0.08em 0 0 rgba(0, 255, 255, 0.75);
+    animation: glitch-anim 0.3s infinite;
+  }
+
+  .rgb-split::after {
+    text-shadow: 0.08em 0 0 rgba(255, 0, 255, 0.75);
+    animation: glitch-anim2 0.3s infinite;
+  }
+
+  .rgb-split-intense {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    color: white;
+    text-shadow: 
+      -0.12em 0 0 rgba(0, 255, 255, 0.8), 
+      0.12em 0 0 rgba(255, 0, 255, 0.8);
+  }
+
+  /* Scan lines */
+  .scan-lines {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scan-lines::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      0deg,
+      transparent 0%,
+      rgba(32, 128, 128, 0.05) 50%,
+      transparent 100%
+    );
+    background-size: 100% 4px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* Horizontal glitch lines */
+  .horizontal-glitch-lines {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .horizontal-glitch-lines::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 5px,
+      rgba(0, 0, 0, 0.1) 5px,
+      rgba(0, 0, 0, 0.1) 6px,
+      transparent 6px,
+      transparent 10px
+    );
+    opacity: 0.1;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Digital noise */
+  .digital-noise {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .digital-noise::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.035;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  @keyframes scanline-move {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 0 100px;
+    }
+  }
+
+  /* Matrix code animation */
+  .bg-matrix-code {
+    background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='a' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.01' numOctaves='1' result='noise'/%3E%3CfeDisplacementMap in2='noise' in='SourceGraphic' scale='10' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.15' fill='none'/%3E%3C/svg%3E");
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Glitch texture */
+  .bg-glitch-texture {
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 255, 0.03) 2px,
+        rgba(0, 255, 255, 0.03) 4px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 4px,
+        rgba(255, 0, 255, 0.03) 4px,
+        rgba(255, 0, 255, 0.03) 8px
+      );
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .bg-glitch-active {
+    animation: glitch-texture 0.2s linear;
+  }
+  
+  @keyframes glitch-texture {
+    0% {
+      background-position: 0 0;
+    }
+    20% {
+      background-position: -5px 10px;
+    }
+    40% {
+      background-position: 10px -5px;
+    }
+    60% {
+      background-position: -15px 15px;
+    }
+    80% {
+      background-position: 15px -15px;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+  /* Glitch box with animation */
+  .glitch-box {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .glitch-box::before,
+  .glitch-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.1;
+  }
+  
+  .glitch-box::before {
+    background: linear-gradient(to bottom, transparent, hsla(var(--rgb-cyan), 0.2));
+    animation: glitch-box-1 8s linear infinite;
+  }
+  
+  .glitch-box::after {
+    background: linear-gradient(to top, transparent, hsla(var(--rgb-magenta), 0.2));
+    animation: glitch-box-2 12s linear infinite;
+  }
+  
+  @keyframes glitch-box-1 {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    75% { transform: translateX(3px); }
+  }
+  
+  @keyframes glitch-box-2 {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(5px); }
+    50% { transform: translateY(-5px); }
+    75% { transform: translateY(3px); }
+  }
+  
+  /* Glitch star animation */
+  .glitch-star {
+    display: inline-block;
+    animation: glitch-star 4s infinite;
+  }
+  
+  @keyframes glitch-star {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    25% { opacity: 0.8; transform: scale(1.1) translateX(1px); }
+    50% { opacity: 1; transform: scale(1); }
+    75% { opacity: 0.8; transform: scale(0.9) translateX(-1px); }
+  }
+  
+  /* Parallax effect stuff */
+  .parallax-layer {
+    position: relative;
+    will-change: transform;
+  }
+
+  /* Color variables for RGB split effect */
+  :root {
+    --rgb-cyan: 180, 100%, 50%;
+    --rgb-magenta: 300, 100%, 50%;
+  }
+}
